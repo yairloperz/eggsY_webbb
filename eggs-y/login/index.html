@@ -1,0 +1,39 @@
+<!-- /login/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Eggs Y</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Acceso Privado</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required />
+      <input type="password" id="password" placeholder="Contraseña" required />
+      <button type="submit">Ingresar</button>
+    </form>
+    <p id="errorMsg" class="error hidden">Usuario o contraseña incorrectos</p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Simulación de validación básica (esto lo reemplazaremos con base de datos luego)
+      if (username === "yair" && password === "1000733797") {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = "../dashboard/index.html";
+      } else {
+        document.getElementById('errorMsg').classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
+

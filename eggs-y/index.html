@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eggs Y - Bienvenidos</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Botón oculto de acceso privado */
+    #privateAccessBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 8px 12px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<script>
+  document.addEventListener('keydown', (e) => {
+    // Ejemplo: presionar Ctrl + Shift + P
+    if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+      const btn = document.getElementById('privateAccessBtn');
+      btn.classList.remove('hidden');
+    }
+  });
+
+  document.getElementById('privateAccessBtn').addEventListener('click', () => {
+    window.location.href = './login/index.html';
+  });
+</script>
+
+<body>
+
+  <!-- Barra de navegación -->
+  <header class="navbar">
+    <img src="img/logo.png" alt="Logo" class="logo-nav" />
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#mision-vision">Misión y Visión</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Botón de Acceso Privado (solo tú sabrás cómo verlo) -->
+  <button id="privateAccessBtn" onclick="window.location.href='login/index.html'">Acceso Privado</button>
+
+  <!-- Inicio -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <img src="img/logo.png" alt="Logo de Eggs Y" class="logo" />
+      <h1>Bienvenido a Eggs Y</h1>
+      <p>Tu granja inteligente de huevos con tecnología avanzada.</p>
+    </div>
+  </section>
+
+  <!-- Quiénes Somos -->
+  <section id="quienes-somos" class="section">
+    <h2>¿Quiénes Somos?</h2>
+    <p>
+      Eggs Y es una empresa familiar colombiana dedicada a la producción de huevos de alta calidad. Nuestra granja combina métodos tradicionales con innovación tecnológica para garantizar frescura, seguridad y sostenibilidad en cada huevo que ofrecemos.
+    </p>
+  </section>
+
+  <!-- Misión, Visión y Valores -->
+  <section id="mision-vision" class="section">
+    <h2>Misión</h2>
+    <p>
+      Ofrecer huevos frescos y de alta calidad mediante un sistema de producción automatizado, eficiente y comprometido con el medio ambiente, garantizando satisfacción a nuestros clientes y bienestar a nuestras gallinas.
+    </p>
+
+    <h2>Visión</h2>
+    <p>
+      Ser una empresa líder en producción y comercialización de huevos en Colombia, destacándonos por la innovación, sostenibilidad y uso de tecnología para el bienestar animal y la seguridad alimentaria.
+    </p>
+
+    <h2>Valores</h2>
+    <ul>
+      <li>Compromiso con la calidad</li>
+      <li>Innovación tecnológica</li>
+      <li>Bienestar animal</li>
+      <li>Responsabilidad ambiental</li>
+      <li>Transparencia y confianza</li>
+    </ul>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="section">
+    <h2>Nuestros Productos</h2>
+    <p>
+      Ofrecemos huevos de gallina de distintas presentaciones, ideales para el consumo familiar o empresarial. Calidad garantizada desde el galpón hasta tu mesa.
+    </p>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria" class="section">
+    <h2>Galería</h2>
+    <p>Próximamente podrás ver imágenes de nuestras instalaciones, procesos y el cuidado que damos a nuestras aves.</p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>Correo: contacto@eggsy.com<br>
+    Teléfono: +57 300 000 0000<br>
+    Dirección: Vía rural, Municipio, Colombia</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Eggs Y. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Mostrar el botón de acceso privado solo si presionas una tecla especial (ej: Shift + P)
+    document.addEventListener("keydown", function(event) {
+      if (event.shiftKey && event.key === "P") {
+        document.getElementById("privateAccessBtn").style.display = "block";
+      }
+    });
+  </script>
+<footer class="text-center p-4">
+  <p>&copy; 2025 Eggs Y</p>
+
+  <!-- Botón solo visible si se aplica clase especial -->
+  <button id="privateAccessBtn" class="hidden bg-blue-600 text-white px-4 py-2 rounded mt-4">
+    Acceso Privado
+  </button>
+</footer>
+
+</body>
+</html>
