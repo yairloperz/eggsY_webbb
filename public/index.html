@@ -1,89 +1,145 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eggs Y - Bienvenidos</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Botón oculto de acceso privado */
+    #privateAccessBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 8px 12px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<script>
+  document.addEventListener('keydown', (e) => {
+    // Ejemplo: presionar Ctrl + Shift + P
+    if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+      const btn = document.getElementById('privateAccessBtn');
+      btn.classList.remove('hidden');
+    }
+  });
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.1.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.1.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  document.getElementById('privateAccessBtn').addEventListener('click', () => {
+    window.location.href = './login/index.html';
+  });
+</script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+
+  <!-- Barra de navegación -->
+  <header class="navbar">
+    <img src="img/logo.png" alt="Logo" class="logo-nav" />
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#mision-vision">Misión y Visión</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Botón de Acceso Privado (solo tú sabrás cómo verlo) -->
+  <button id="privateAccessBtn" onclick="window.location.href='login/index.html'">Acceso Privado</button>
+
+  <!-- Inicio -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <img src="img/logo.png" alt="Logo de Eggs Y" class="logo" />
+      <h1>Bienvenido a Eggs Y</h1>
+      <p>Tu granja inteligente de huevos con tecnología avanzada.</p>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </section>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <!-- Quiénes Somos -->
+  <section id="quienes-somos" class="section">
+    <h2>¿Quiénes Somos?</h2>
+    <p>
+      Eggs Y es una empresa familiar colombiana dedicada a la producción de huevos de alta calidad. Nuestra granja combina métodos tradicionales con innovación tecnológica para garantizar frescura, seguridad y sostenibilidad en cada huevo que ofrecemos.
+    </p>
+  </section>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+  <!-- Misión, Visión y Valores -->
+  <section id="mision-vision" class="section">
+    <h2>Misión</h2>
+    <p>
+      Ofrecer huevos frescos y de alta calidad mediante un sistema de producción automatizado, eficiente y comprometido con el medio ambiente, garantizando satisfacción a nuestros clientes y bienestar a nuestras gallinas.
+    </p>
+
+    <h2>Visión</h2>
+    <p>
+      Ser una empresa líder en producción y comercialización de huevos en Colombia, destacándonos por la innovación, sostenibilidad y uso de tecnología para el bienestar animal y la seguridad alimentaria.
+    </p>
+
+    <h2>Valores</h2>
+    <ul>
+      <li>Compromiso con la calidad</li>
+      <li>Innovación tecnológica</li>
+      <li>Bienestar animal</li>
+      <li>Responsabilidad ambiental</li>
+      <li>Transparencia y confianza</li>
+    </ul>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="section">
+    <h2>Nuestros Productos</h2>
+    <p>
+      Ofrecemos huevos de gallina de distintas presentaciones, ideales para el consumo familiar o empresarial. Calidad garantizada desde el galpón hasta tu mesa.
+    </p>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria" class="section">
+    <h2>Galería</h2>
+    <p>Próximamente podrás ver imágenes de nuestras instalaciones, procesos y el cuidado que damos a nuestras aves.</p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>Correo: contacto@eggsy.com<br>
+    Teléfono: +57 300 000 0000<br>
+    Dirección: Vía rural, Municipio, Colombia</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Eggs Y. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Mostrar el botón de acceso privado solo si presionas una tecla especial (ej: Shift + P)
+    document.addEventListener("keydown", function(event) {
+      if (event.shiftKey && event.key === "P") {
+        document.getElementById("privateAccessBtn").style.display = "block";
+      }
+    });
+  </script>
+<footer class="text-center p-4">
+  <p>&copy; 2025 Eggs Y</p>
+
+  <!-- Botón solo visible si se aplica clase especial -->
+  <button id="privateAccessBtn" class="hidden bg-blue-600 text-white px-4 py-2 rounded mt-4">
+    Acceso Privado
+  </button>
+</footer>
+
+</body>
 </html>
